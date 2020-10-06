@@ -1,9 +1,12 @@
 # ROS Wrapper for Intel&reg; RealSense&trade; Devices
 These are packages for using Intel RealSense cameras (D400 series SR300 camera and T265 Tracking Module) with ROS.
 
-LibRealSense supported version: v2.38.1 (see [realsense2_camera release notes](https://github.com/IntelRealSense/realsense-ros/releases))
-
 ## Multiple Cameras Example by ADLINK
+
+Verified with:
+- ROS Melodic on Ubuntu 18.04
+- librealsense2 v2.39.0
+- RealSense D435/D435i with firmware v05.12.05.200
 
 Remove the old RealSense library and packages:
 
@@ -12,7 +15,7 @@ sudo apt remove ros-melodic-librealsense2 -y
 sudo apt remove ros-melodic-realsense2-camera -y
 ```
 
-Install the latest LibRealSense:
+Install the latest librealsense:
 
 ```bash
 sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
@@ -45,6 +48,16 @@ Build RealSense ROS wrapper:
 source /opt/ros/melodic/setup.bash
 cd ~/realsense_ros1_ws
 catkin_make -DCMAKE_BUILD_TYPE=Release
+```
+
+Before running this example, please use realsense-viewer to get S/N and fill S/N in the launch file.
+
+```bash
+# Read the S/N from the connected RealSense cameras:
+realsense-viewer
+
+# And then modify the serial number in this launch file:
+gedit ~/realsense_ros1_ws/src/realsense-ros/realsense2_camera/launch/rs_multiple_devices.launch
 ```
 
 Run Multiple Cameras example:
