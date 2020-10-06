@@ -8,8 +8,8 @@ LibRealSense supported version: v2.38.1 (see [realsense2_camera release notes](h
 Remove the old RealSense library and packages:
 
 ```bash
-sudo apt remove ros-melodic-librealsense2
-sudo apt remove ros-melodic-realsense2-camera
+sudo apt remove ros-melodic-librealsense2 -y
+sudo apt remove ros-melodic-realsense2-camera -y
 ```
 
 Install the latest LibRealSense:
