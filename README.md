@@ -4,6 +4,7 @@ These are packages for using Intel RealSense cameras (D400 series SR300 camera a
 ## Multiple Cameras Example by ADLINK
 
 Verified with:
+- USB 3.2 ports of ADLINK ROScube-I
 - ROS Melodic on Ubuntu 18.04
 - librealsense2 v2.39.0
 - RealSense D435/D435i with firmware v05.12.05.200
