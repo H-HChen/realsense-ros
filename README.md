@@ -3,9 +3,9 @@ These are packages for using Intel RealSense cameras (D400 series SR300 camera a
 
 LibRealSense supported version: v2.38.1 (see [realsense2_camera release notes](https://github.com/IntelRealSense/realsense-ros/releases))
 
-## Multiple Camera Example by ADLINK
+## Multiple Cameras Example by ADLINK
 
-Remove the old RealSense library and packages
+Remove the old RealSense library and packages:
 
 ```bash
 sudo apt remove ros-melodic-librealsense2
@@ -30,7 +30,16 @@ mkdir ~/realsense_ros1_ws/src -p
 cd ~/realsense_ros1_ws/src
 git clone https://github.com/Adlink-ROS/realsense-ros.git -b adlink-ros1-devel
 ```
-Build RealSense ROS wrapper
+
+Install the latest dependencies:
+
+```bash
+cd ~/realsense_ros1_ws/
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y --rosdistro melodic
+```
+
+Build RealSense ROS wrapper:
 
 ```bash
 source /opt/ros/melodic/setup.bash
@@ -38,7 +47,7 @@ cd ~/realsense_ros1_ws
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 
-Run Multiple RealSense example
+Run Multiple Cameras example:
 
 ```bash
 source ~/realsense_ros1_ws/devel/setup.bash
