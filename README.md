@@ -3,6 +3,49 @@ These are packages for using Intel RealSense cameras (D400 series SR300 camera a
 
 LibRealSense supported version: v2.38.1 (see [realsense2_camera release notes](https://github.com/IntelRealSense/realsense-ros/releases))
 
+## Multiple Camera Example by ADLINK
+
+    Remove the old RealSense library and packages
+
+```bash
+sudo apt remove ros-melodic-librealsense2
+sudo apt remove ros-melodic-realsense2-camera
+```
+
+    Install the latest LibRealSense:
+
+```bash
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
+sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo bionic main" -u
+sudo apt install -y librealsense2-dkms \
+librealsense2-utils \
+librealsense2-dev \
+librealsense2-dbg
+```
+
+    Download RealSense ROS wrapper:
+
+```bash
+mkdir ~/realsense_ros1_ws/src -p
+cd ~/realsense_ros1_ws/src
+git clone https://github.com/Adlink-ROS/realsense-ros.git -b adlink-ros1-devel
+```
+
+    Build RealSense ROS wrapper
+
+```bash
+source /opt/ros/melodic/setup.bash
+cd ~/realsense_ros1_ws
+catkin_make -DCMAKE_BUILD_TYPE=Release
+```
+
+    Run Multiple RealSense example
+
+```bash
+    source ~/realsense_ros1_ws/devel/setup.bash
+    roslaunch realsense2_camera rs_multiple_devices.launch open_rviz:=true
+```
+
 ## Installation Instructions
 
 ### Ubuntu
